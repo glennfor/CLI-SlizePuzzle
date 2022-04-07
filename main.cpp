@@ -49,6 +49,7 @@ char RMOVES[] = {DOWN, UP, RIGHT, LEFT};
 std::vector<int> allMoves;
 
 
+void displayInstructions();
 
 void show_state(char state[],bool stay = false){
 	TEXTCOLOR(VIOLET);
@@ -120,7 +121,7 @@ void writeNumbersToScreen(int first_x_pos, int first_y_pos,int nums[][4],
 void showGameWonAnimation(){
 	clear_screen();
 	char message[100] = "\n\n\n\n\n\n\n\tEXCELLENT\n\n\n"
-		"\t\tYOU HAVE WON , CONGRATULATIONS";
+		"\t\tYOU HAVE SOLVED THE PUZZLE, CONGRATULATIONS";
 	int index = 0;
 	clear_screen();
 	while (message[index] != '\0'){
@@ -298,7 +299,7 @@ void runGame(){
 				break;
 			case '?':
 			case 'h':
-				//no help available yet
+				displayInstructions();
 				break;
 			case 'N':
 			case 'n':
@@ -404,7 +405,7 @@ void writeGameInfoToScreen(){
 	GOTOXY(39, 8),std::cout<<"[N] = Start A New Game";
 	GOTOXY(39, 9),std::cout<<"[E] = Exit";
 	GOTOXY(39, 10),std::cout<<"[Q] = Save and Exit" "(Currently Unavailable)";
-	GOTOXY(39, 11),std::cout<<"[G] = Solve current game";
+	GOTOXY(39, 11),std::cout<<"[G] = Solve current Puzzle";
 	GOTOXY(39, 12),std::cout<<"[?] = Help(Not yet Available)";
 	//a reset to cancel all users moves
 	
@@ -562,5 +563,18 @@ void updateArrayValues(int move, int nums[][4]){
 void updateScreen(int move, int nums[][4]){
     updateArrayValues(move, nums);
 	writeNumbersToScreen(5, 7 ,nums, 0);
+}
+
+void displayInstructions(){
+	clear_screen();
+	printf("*************************************************\n");
+	printf("**       CLI SLIDE PUZZLE ~ Help               **\n");
+	printf("*************************************************\n");
+	printf("* -Start a new puzzle by giving the command     *\n");
+	printf("* -Press any key to randomise the puzzle        *\n");
+	printf("* -Follow the navigation steps to solve         *\n");
+	printf("* -Use the instruction guide for any command    *\n");
+	printf("*************************************************\n");
+	printf("*************************************************\n");
 }
 

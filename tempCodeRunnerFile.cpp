@@ -1,2 +1,0 @@
-movePairs[UP] = DOWN;
-// m
