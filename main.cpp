@@ -1,12 +1,5 @@
 
-
-
 //slide puzzle
-
-//note
-//COORD defined in windows.h is a struct
-
-//functions to improve
 
 //solveboerd and rungame
 //also check drawboard
@@ -29,9 +22,6 @@ const auto RANDOMIZE_MOVES = 20;
 
 //possible moves defined in MACROS.h
 //are UP, DOWN, LEFT, RIGHT
-
-//int csn be interpreted as chars and vice versa;
-//i will use int(more natural to deal with)
 
 
 char MOVES[] = {UP, DOWN, LEFT, RIGHT};
