@@ -1,13 +1,3 @@
-
-//slide puzzle
-
-//solveboerd and rungame
-//also check drawboard
-//improve animations
-//style application further
-//can add a little windows programming ther eg messageboxes to get some input
-//add time counter along side
-
 #include "./main.h"
 
 using std::cout;
@@ -20,22 +10,15 @@ using std::vector;
 //number of distortions to make to the board
 const auto RANDOMIZE_MOVES = 20;
 
-//possible moves defined in MACROS.h
-//are UP, DOWN, LEFT, RIGHT
-
-
+//possible moves [defined in main.h]
 char MOVES[] = {UP, DOWN, LEFT, RIGHT};
 
 //opposite of each move
-
 char RMOVES[] = {DOWN, UP, RIGHT, LEFT};
 
 
-
 //GLOBAL VARIABLE YHAT HOLD ALL MOVES MADE BY THE PLAYER AND
-//THE RANDOM ONES MADE BY THE COMPUTER
-
-
+//THE RANDOM ONES MADE BY THE COMPUTER ie All moves of the game
 std::vector<int> allMoves;
 
 
