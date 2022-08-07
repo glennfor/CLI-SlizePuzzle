@@ -190,11 +190,9 @@ void solveBoard(int board[][4], int wait){
         Sleep(wait);
     }
     
-    //swap all the values in the vector
    	strcpy(msg, "Puzzle Solved!!!");
     show_state(msg);
     
-    //empty the vector of moves
     allMoves.clear();
 }
 
@@ -243,23 +241,25 @@ void runGame(){
   
 			playerMove = getch();
 		
-			if(not playerMove){//function or arrow key pressed?
+			//function or arrow key pressed?
+			if(not playerMove){ 
 				ungetch(playerMove);
 				playerMove = getch();
 			}
-        //validate and incoporate player move
+
+        	//validate and incoporate player move
             if(isValidMove(playerMove,board)){
                 updateScreen(playerMove, board);
                 allMoves.push_back(playerMove);
             }
             
-            //check for win(array sorted as from the beggining)
+            //check for terminating condition [solved]
             if(checkForWin(board)){
                 showGameWonAnimation();
                 generateNewPuzzle();
 	        }
 			
-		//pARSING commands
+		//Parse commands
   		switch (playerMove){
 			case 'G':
 			case 'g':
@@ -268,7 +268,7 @@ void runGame(){
 				break;
 			case 'E':
 			case 'e':
-				showGameExitScreen();//Exit_game
+				showGameExitScreen();
 				break;
 			case '?':
 			case 'h':
@@ -278,7 +278,7 @@ void runGame(){
 			case 'n':
 				generateNewPuzzle();
 				break;
-			case 'Q'://could be a mistake  ; use WINAPI
+			case 'Q':
 			case 'q':
 				TEXTCOLOR(YELLOW);
 				clear_screen();
@@ -306,7 +306,7 @@ void runGame(){
  *                                                                          *
  ****************************************************************************/
 
-void drawBoard(void){//draw the grid
+void drawBoard(void){
 
 	char ch[12] ;
     int codes[12]= {179, 196,197,194,193,218,191,192,217,195,180};
@@ -315,13 +315,14 @@ void drawBoard(void){//draw the grid
 	GOTOXY(30, 1+4), std::cout << ch[6]; //top right corner
 	GOTOXY(2,9+4+8), std::cout <<ch[7];//bottom left corner
 	GOTOXY(30, 9+4+8), std::cout <<ch[8];//bottom right corner
+	
 	//middle vertical lines
 	for(int i = 2; i <=30; i += 7)
 		for(int j = 2; j <= 8+8; ++j){
         	GOTOXY(i, j+4), std::cout <<ch[0];
 		}
- //joining of the box
-
+ 	
+ 	//joining of the box
     for(int i = 1; i <=27; i++)
 		for(int j = 1; j <= 19; j +=4){//c
         	GOTOXY(i+2, j+4), std::cout <<ch[1];
@@ -331,6 +332,7 @@ void drawBoard(void){//draw the grid
     for(int i = 2; i <=21; i+=7)//fixed
 		for(int j = 1; j <= 7+6; j +=4)//c
         	GOTOXY(i+7, j+2+4-2), std::cout <<ch[2];
+
 	//first line
     for(int i = 2; i <=22; i+=7)
         	GOTOXY(i+7, 1+4), std::cout <<ch[3];
@@ -340,11 +342,13 @@ void drawBoard(void){//draw the grid
 	//third line
    for(int i = 2; i <=10; i+=4)
         	GOTOXY(2, i+1+4+2), std::cout <<ch[9];
-       //fourth line
+     //fourth line
    for(int i = 2; i <=10; i+=4)
         	GOTOXY(30, i+1+4+2), std::cout <<ch[10];
 
 }
+
+
 /****************************************************************************
  *                                                                          *
  * Function: writeNumbersToScreen                                                     *
@@ -401,9 +405,6 @@ void generateRandomMoves(int nums[][4]){
 	srand(time(NULL));
 	
 	int nValidMoves = 0;
-	
-	//reseeding the random number generator
-	srand(time(NULL));
 
 	while(nValidMoves < RANDOMIZE_MOVES){
 		
@@ -441,8 +442,8 @@ bool isValidMove(int move, int nums[][4]){
  	//there are 4 scenarios  that can invalidate a move
  	bool
  	//moving up when the upper bound is already reached
-	 movingUpCondition((move==UP or move==UPx or move==UPxl)and (dx == 0)),
-	 //moving down when the lower bound is already reached
+	movingUpCondition((move==UP or move==UPx or move==UPxl)and (dx == 0)),
+	//moving down when the lower bound is already reached
  	movingDownCondition((move==DOWN or move==DOWNx or move==DOWNxl) and (dx == 3)),//remember runs from 0 to 3
  	//moving left when the left bound is already reached
  	movingLeftCondition((move==LEFT or move==LEFTx or move==LEFTxl)and (dy == 0)),
