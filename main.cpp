@@ -148,8 +148,8 @@ void generateNewPuzzle(){
 main(){
     showWelcomeScreen();
     clear_screen();
-	runGame();
-	getch();
+		runGame();
+		getch();
 }
 
 
