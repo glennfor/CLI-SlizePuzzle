@@ -1,15 +1,23 @@
-
 # CLI-SlizePuzzle
-Implementation of a slide puzzle in the console with C++(Windows Specific)
 
-Simple 16 box puzzles to arrange numbers 
-	
-	This Puzzle has many possible improvements
+[Demo](./demo/slide-puzzle-demo.mp4)
 
-- `solveboard`, `drawboard` and `rungame` functions can be improved to make the game more intuitive
-- improve animations
-- add more styling to the interface
-- add a little windows programming such as messageboxes to get input
-- add timer ⏲ 
+## About the slide puzzle
 
+This is a small slide puzzle. The console manipulations are windows specific but
+can be easily replaced with curses or some other console manipulating lib.
 
+## Running
+
+- Clone this repo on windows
+- Compile with `g++ main.cpp -o main.exe`
+- Run with `./main.exe` on CMD or PSH
+
+## Notes
+
+There is room for some novel feature like
+
+- improving animations
+- adding more styling to the interface
+- adding in a little windows programming such as messageboxes to get input
+- adding timer ⏲
