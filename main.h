@@ -114,6 +114,7 @@ YOU HAVE GET AS
 #define  BTEXTCOLOR(fg,bg)  SetConsoleTextAttribute(hstdout, set2(fg,bg))//color(a) on bg (b)
 
 void clear_screen(){
+     system("color");
     system("cls");
 }
 

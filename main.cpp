@@ -8,7 +8,7 @@ using std::vector;
 //[GAME CONSTANTS]
 
 //number of distortions to make to the board
-const auto RANDOMIZE_MOVES = 20;
+const auto RANDOMIZE_MOVES = 80;
 
 //possible moves [defined in main.h]
 char MOVES[] = {UP, DOWN, LEFT, RIGHT};
