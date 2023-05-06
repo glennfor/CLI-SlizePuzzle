@@ -1,6 +1,6 @@
 # CLI-SlizePuzzle
 
-[Demo](./demo/slide-puzzle-demo.mp4)
+![Demo](./demo/slide-puzzle-demo.mp4)
 
 ## About the slide puzzle
 
